@@ -9,46 +9,67 @@
 import UIKit
 import QuartzCore
 
-class RangeSlider: UIControl {
+@IBDesignable class RangeSlider: UIControl {
    
-    var minimumValue: Double = 0 {
+    @IBInspectable var minimumValue: Double = 0 {
         didSet {
             updateLayerFrames()
         }
     }
-    var maximumValue: Double = 1000 {
+    
+    @IBInspectable var maximumValue: Double = 1000 {
         didSet {
             updateLayerFrames()
         }
     }
-    var lowerValue: Double = 20 {
+    
+    @IBInspectable var lowerValue: Double = 20 {
         didSet {
+            if lowerValue < minimumValue {
+                fatalError("Invalid Lower Value")
+            }
             updateLayerFrames()
         }
     }
-    var upperValue: Double = 1000 {
+    
+    @IBInspectable var upperValue: Double = 1000 {
         didSet {
+            if upperValue > maximumValue {
+                fatalError("Invalid Higher Value")
+            }
             updateLayerFrames()
         }
     }
-    var trackTintColor = UIColor(white: 0.9, alpha: 1.0) {
+    
+    @IBInspectable var trackTintColor = UIColor(white: 0.9, alpha: 1.0) {
         didSet {
             trackLayer.setNeedsDisplay()
         }
     }
-    var trackHighlightTintColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
+    
+    @IBInspectable var trackHighlightTintColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
         didSet {
             trackLayer.setNeedsDisplay()
         }
     }
-    var thumbTintColor = UIColor.white {
+    
+    @IBInspectable var thumbTintColor = UIColor.white {
         didSet {
             lowerThumbLayer.setNeedsDisplay()
             upperThumbLayer.setNeedsDisplay()
         }
     }
-    var curvaceousness : CGFloat = 1.0 {
+    
+    @IBInspectable var curvaceousness : CGFloat = 1.0 {
         didSet {
+            if curvaceousness < 0.0 {
+                curvaceousness = 0.0
+            }
+            
+            if curvaceousness > 1.0 {
+                curvaceousness = 1.0
+            }
+            
             lowerThumbLayer.setNeedsDisplay()
             upperThumbLayer.setNeedsDisplay()
             trackLayer.setNeedsDisplay()
@@ -58,10 +79,6 @@ class RangeSlider: UIControl {
     let trackLayer = RangeSliderTrackerLayer()
     let lowerThumbLayer = RangeSliderThumbLayer()
     let upperThumbLayer = RangeSliderThumbLayer()
-    
-   
-    
-    
     var previousLocation = CGPoint()
     
     var thumbWidth: CGFloat {
