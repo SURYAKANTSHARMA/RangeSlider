@@ -26,7 +26,7 @@ import QuartzCore
     @IBInspectable var lowerValue: Double = 20 {
         didSet {
             if lowerValue < minimumValue {
-                fatalError("Invalid Lower Value")
+               lowerValue = minimumValue
             }
             updateLayerFrames()
         }
@@ -35,7 +35,7 @@ import QuartzCore
     @IBInspectable var upperValue: Double = 1000 {
         didSet {
             if upperValue > maximumValue {
-                fatalError("Invalid Higher Value")
+                upperValue = maximumValue
             }
             updateLayerFrames()
         }
@@ -116,6 +116,19 @@ import QuartzCore
     
     required init(coder: NSCoder) {
         super.init(coder: coder)!
+        trackLayer.rangeSlider = self
+        trackLayer.contentsScale = UIScreen.main.scale
+        layer.addSublayer(trackLayer)
+        
+        lowerThumbLayer.rangeSlider = self
+        lowerThumbLayer.contentsScale = UIScreen.main.scale
+        layer.addSublayer(lowerThumbLayer)
+        
+        upperThumbLayer.rangeSlider = self
+        upperThumbLayer.contentsScale = UIScreen.main.scale
+        layer.addSublayer(upperThumbLayer)
+        
+        updateLayerFrames()
     }
     
     func updateLayerFrames() {

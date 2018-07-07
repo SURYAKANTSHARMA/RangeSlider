@@ -31,11 +31,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HT3-V5-0wW" customClass="RangeSlider" customModule="RangeSlider" customModuleProvider="target">
-                                <rect key="frame" x="42" y="159" width="278" height="36"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="42" y="195.5" width="313" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="ftd-2A-zXn"/>
+                                    <constraint firstAttribute="height" constant="44" id="ftd-2A-zXn"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lowerValue">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="upperValue">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,9 +59,9 @@
                             <constraint firstItem="HT3-V5-0wW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="JUv-4t-r16"/>
                             <constraint firstItem="quR-BJ-MhY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="OPG-Tt-8c3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VNA-Qs-xWB" secondAttribute="trailing" constant="55" id="U50-P5-5rS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HT3-V5-0wW" secondAttribute="trailing" constant="55" id="WUa-eK-Fnf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HT3-V5-0wW" secondAttribute="trailing" constant="20" id="WUa-eK-Fnf"/>
                             <constraint firstItem="VNA-Qs-xWB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="eAa-7l-PMR"/>
-                            <constraint firstItem="HT3-V5-0wW" firstAttribute="top" secondItem="VNA-Qs-xWB" secondAttribute="bottom" constant="63.5" id="klL-oT-Xdh"/>
+                            <constraint firstItem="HT3-V5-0wW" firstAttribute="top" secondItem="VNA-Qs-xWB" secondAttribute="bottom" constant="100" id="klL-oT-Xdh"/>
                             <constraint firstItem="quR-BJ-MhY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="xhz-vU-y56"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
